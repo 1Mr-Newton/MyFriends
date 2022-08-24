@@ -2,6 +2,8 @@ from flask import Flask, render_template, redirect, request, url_for, session, f
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
+from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "my secret key that is very difficult for hackers to hack"
@@ -26,6 +28,7 @@ def name():
 
 @app.route("/", methods=["POST", "GET"])
 def index():
+    flash("Welcome to my website")
     return render_template("index.html")
 
 
